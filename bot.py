@@ -61,7 +61,7 @@ def sleep_poster(date_post):
 # date = [int(i) for i in date]
 # post_time = datetime(year=2022, month=9, day=8, hour=date[0], minute=date[1]).time()
 # now = datetime.now().time()
-post_time = datetime(year=2022, month=9, day=8, hour=0, minute=5).time()
+post_time = datetime(year=2022, month=9, day=8, hour=8, minute=0).time()
 
 # print("now - ", now)
 # print("post time - ", post_time)
