@@ -9,7 +9,7 @@ from time import sleep
 from datetime import datetime
 from threading import Thread
 
-BOT_TOKEN = ""
+BOT_TOKEN = "5578328552:AAGCX67Rj8Msp6RXmqEHfBfkbh4YvyTnLQA"
 CHANNEL_NAME = "@testinfochannelpci"
 news_url = 'https://cryptonews.net/news/top/'
 news_url_key = 'http://www.cryptonews.net'
@@ -61,7 +61,7 @@ def sleep_poster(date_post):
 # date = [int(i) for i in date]
 # post_time = datetime(year=2022, month=9, day=8, hour=date[0], minute=date[1]).time()
 # now = datetime.now().time()
-post_time = datetime(year=2022, month=9, day=8, hour=8, minute=0).time()
+post_time = datetime(year=2022, month=9, day=8, hour=0, minute=5).time()
 
 # print("now - ", now)
 # print("post time - ", post_time)
@@ -72,5 +72,4 @@ thr.run()
 
 # TODO: Auto-posting to channel every selected time - DONE
 
-
-# bot.infinity_polling()
+bot.polling(none_stop=True)
