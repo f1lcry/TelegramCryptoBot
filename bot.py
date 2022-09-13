@@ -54,7 +54,7 @@ def sleep_poster():
         if now.tm_hour == 5 and now.tm_min == 0 and now.tm_sec == 0:
             print("Creating a message... Progress: 5%")
             info = "Привет! \U0001F31E Ежедневный обзор рынка: \n\n" + recognize_trend() + "\n\n" + get_prices() + "\n" + get_fng_index() + "\n\n" + get_global_market_info() + "\n\n" + grabber.get_text()
-            bot.send_photo(CHANNEL_NAME, fng_image, caption=info, parse_mode="HTML")
+            bot.send_message(CHANNEL_NAME, info, parse_mode="HTML")
             print('Отправили сообщение!')
 
 
