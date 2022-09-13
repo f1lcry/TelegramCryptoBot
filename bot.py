@@ -11,7 +11,7 @@ from time import sleep
 from datetime import datetime
 from threading import Thread
 
-BOT_TOKEN = "5578328552:AAGCX67Rj8Msp6RXmqEHfBfkbh4YvyTnLQA"
+BOT_TOKEN = ""
 CHANNEL_NAME = "@testinfochannelpci"
 news_url = 'https://cryptonews.net/news/top/'
 news_url_key = 'http://www.cryptonews.net'
