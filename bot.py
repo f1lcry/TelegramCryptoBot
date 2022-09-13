@@ -1,3 +1,5 @@
+import time
+
 from bot_functions import get_fng_index, get_prices, get_global_market_info, recognize_trend
 from bot_functions import GrabberArticle
 
@@ -9,7 +11,7 @@ from time import sleep
 from datetime import datetime
 from threading import Thread
 
-BOT_TOKEN = ""
+BOT_TOKEN = "5578328552:AAGCX67Rj8Msp6RXmqEHfBfkbh4YvyTnLQA"
 CHANNEL_NAME = "@testinfochannelpci"
 news_url = 'https://cryptonews.net/news/top/'
 news_url_key = 'http://www.cryptonews.net'
@@ -45,21 +47,18 @@ def say_price(message):
     bot.send_message(CHANNEL_NAME, "Price is asked")
 
 
-def sleep_poster(date_post):
+def sleep_poster():
     while True:
-        if date_post <= datetime.now().time():
-            print(datetime.now().time())
+        sleep(30)
+        now = time.localtime()
+        if now.tm_hour == 8 and now.tm_min == 0 and now.tm_sec == 0:
             print("Creating a message... Progress: 5%")
             info = "Привет! \U0001F31E Ежедневный обзор рынка: \n\n" + recognize_trend() + "\n\n" + get_prices() + "\n" + get_fng_index() + "\n\n" + get_global_market_info() + "\n\n" + grabber.get_text()
             bot.send_photo(CHANNEL_NAME, fng_image, caption=info, parse_mode="HTML")
             print('Отправили сообщение!')
-            sleep(58000)
-        else:
-            sleep(45)
 
 
-post_time = datetime(year=2022, month=9, day=8, hour=8, minute=0).time()
-thr = Thread(target=sleep_poster, args=[post_time])
+thr = Thread(target=sleep_poster)
 thr.run()
 
 # date = input().split("-")
