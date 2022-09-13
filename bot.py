@@ -9,7 +9,7 @@ from time import sleep
 from datetime import datetime
 from threading import Thread
 
-BOT_TOKEN = "5578328552:AAGCX67Rj8Msp6RXmqEHfBfkbh4YvyTnLQA"
+BOT_TOKEN = ""
 CHANNEL_NAME = "@testinfochannelpci"
 news_url = 'https://cryptonews.net/news/top/'
 news_url_key = 'http://www.cryptonews.net'
@@ -48,6 +48,7 @@ def say_price(message):
 def sleep_poster(date_post):
     while True:
         if date_post <= datetime.now().time():
+            print(datetime.now().time())
             print("Creating a message... Progress: 5%")
             info = "Привет! \U0001F31E Ежедневный обзор рынка: \n\n" + recognize_trend() + "\n\n" + get_prices() + "\n" + get_fng_index() + "\n\n" + get_global_market_info() + "\n\n" + grabber.get_text()
             bot.send_photo(CHANNEL_NAME, fng_image, caption=info, parse_mode="HTML")
@@ -57,17 +58,17 @@ def sleep_poster(date_post):
             sleep(45)
 
 
+post_time = datetime(year=2022, month=9, day=8, hour=8, minute=0).time()
+thr = Thread(target=sleep_poster, args=[post_time])
+thr.run()
+
 # date = input().split("-")
 # date = [int(i) for i in date]
 # post_time = datetime(year=2022, month=9, day=8, hour=date[0], minute=date[1]).time()
 # now = datetime.now().time()
-post_time = datetime(year=2022, month=9, day=8, hour=8, minute=0).time()
 
 # print("now - ", now)
 # print("post time - ", post_time)
-
-thr = Thread(target=sleep_poster, args=[post_time])
-thr.run()
 
 
 # TODO: Auto-posting to channel every selected time - DONE
