@@ -13,7 +13,7 @@ from threading import Thread
 
 from PIL import Image
 
-BOT_TOKEN = "5578328552:AAGCX67Rj8Msp6RXmqEHfBfkbh4YvyTnLQA"
+BOT_TOKEN = ""
 CHANNEL_NAME = "@f1lcry"
 news_url = 'https://cryptonews.net/news/top/'
 news_url_key = 'http://www.cryptonews.net'
