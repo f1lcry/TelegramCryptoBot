@@ -13,7 +13,7 @@ from threading import Thread
 
 
 BOT_TOKEN = ""
-CHANNEL_NAME = "@testinfochannelpci"
+CHANNEL_NAME = "@f1lcry"
 news_url = 'https://cryptonews.net/news/top/'
 news_url_key = 'http://www.cryptonews.net'
 market_image = "https://ibb.co/1sJ8m5B"
