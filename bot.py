@@ -11,11 +11,13 @@ from time import sleep
 from datetime import datetime
 from threading import Thread
 
+from PIL import Image
+
 BOT_TOKEN = "5578328552:AAGCX67Rj8Msp6RXmqEHfBfkbh4YvyTnLQA"
-CHANNEL_NAME = "@testinfochannelpci"
+CHANNEL_NAME = "@f1lcry"
 news_url = 'https://cryptonews.net/news/top/'
 news_url_key = 'http://www.cryptonews.net'
-fng_image = "https://alternative.me/crypto/fear-and-greed-index.png"
+market_image = Image.open("rev_img.png")
 bot = telebot.TeleBot(BOT_TOKEN)
 grabber = GrabberArticle(news_url, news_url_key)
 
@@ -31,7 +33,7 @@ def send_welcome(message):
 def get_market_info(message):
     info = "Привет! \U0001F31E Ежедневный обзор рынка: \n\n" + recognize_trend() + "\n\n" + get_prices() + "\n" + get_fng_index() + "\n\n" + get_global_market_info() + "\n\n" + grabber.get_text()
     # bot.send_photo(message.from_user.id, fng_image, caption=info, parse_mode="HTML")
-    bot.send_photo(CHANNEL_NAME, fng_image, caption=info, parse_mode="HTML")
+    bot.send_photo(CHANNEL_NAME, market_image, caption=info, parse_mode="HTML")
 
 
 @bot.message_handler(func=lambda m: True)
@@ -54,25 +56,13 @@ def sleep_poster():
         if now.tm_hour == 5 and now.tm_min == 0:
             print("Creating a message... Progress: 5%")
             info = "Привет! \U0001F31E Ежедневный обзор рынка: \n\n" + recognize_trend() + "\n\n" + get_prices() + "\n" + get_fng_index() + "\n\n" + get_global_market_info() + "\n\n" + grabber.get_text()
-            bot.send_message(CHANNEL_NAME, info, parse_mode="HTML")
+            bot.send_photo(CHANNEL_NAME, market_image, caption=info, parse_mode="HTML")
             print('Отправили сообщение!')
 
 
-bot.send_message(CHANNEL_NAME, "Bot started")
-
+print("Bot started")
 
 thr = Thread(target=sleep_poster)
 thr.run()
-
-# date = input().split("-")
-# date = [int(i) for i in date]
-# post_time = datetime(year=2022, month=9, day=8, hour=date[0], minute=date[1]).time()
-# now = datetime.now().time()
-
-# print("now - ", now)
-# print("post time - ", post_time)
-
-
-# TODO: Auto-posting to channel every selected time - DONE
 
 bot.polling(none_stop=True)
