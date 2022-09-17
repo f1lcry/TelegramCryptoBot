@@ -13,7 +13,7 @@ from threading import Thread
 
 
 BOT_TOKEN = ""
-CHANNEL_NAME = "@f1lcry"
+CHANNEL_NAME = "@testinfochannelpci"
 news_url = 'https://cryptonews.net/news/top/'
 news_url_key = 'http://www.cryptonews.net'
 market_image = "https://ibb.co/1sJ8m5B"
@@ -59,6 +59,7 @@ def sleep_poster():
             print('Отправили сообщение!')
 
 
+bot.send_message(CHANNEL_NAME, "aboba")
 print("Bot started")
 
 thr = Thread(target=sleep_poster)
