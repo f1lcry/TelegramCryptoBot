@@ -12,7 +12,7 @@ from datetime import datetime
 from threading import Thread
 
 
-BOT_TOKEN = ""
+BOT_TOKEN = "5578328552:AAGCX67Rj8Msp6RXmqEHfBfkbh4YvyTnLQA"
 CHANNEL_NAME = "@testinfochannelpci"
 news_url = 'https://cryptonews.net/news/top/'
 news_url_key = 'http://www.cryptonews.net'
