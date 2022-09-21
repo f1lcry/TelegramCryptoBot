@@ -50,13 +50,14 @@ def say_price(message):
 
 def sleep_poster():
     while True:
-        sleep(45)
+        sleep(30)
         now = time.localtime()
         if now.tm_hour == 5 and now.tm_min == 0:
             print("Creating a message... Progress: 5%")
             info = "Доброе утро! \U0001F31E Ежедневный обзор рынка: \n\n" + recognize_trend() + "\n\n" + get_prices() + "\n" + get_fng_index() + "\n\n" + get_global_market_info() + "\n\n" + grabber.get_text()
             bot.send_photo(CHANNEL_NAME, market_image, caption=info, parse_mode="HTML")
             print('Отправили сообщение!')
+            sleep(60)
 
 
 print("Bot started ----- Token: 5578328552:AAGCX67Rj8Msp6RXmqEHfBfkbh4YvyTnLQA")
