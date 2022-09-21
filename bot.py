@@ -50,7 +50,7 @@ def say_price(message):
 
 def sleep_poster():
     while True:
-        sleep(30)
+        sleep(45)
         now = time.localtime()
         if now.tm_hour == 5 and now.tm_min == 0:
             print("Creating a message... Progress: 5%")
